@@ -1,4 +1,8 @@
-import './App.css';
+import './css/App.css';
+import './css/header.css';
+import './css/footer.css';
+import './css/main.css';
+
 import { useState } from 'react';
 
 function App() {
