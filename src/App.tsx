@@ -1,6 +1,10 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [prefClick, setPrefClick] = useState(false);
+
+
   return (
     <div className="App">
     
@@ -8,10 +12,16 @@ function App() {
         <div className="header-inner"></div>
 
       </div>
-      <div className="main">
-        <div className="main-inner">
 
-        </div>
+      <div className="main">
+      
+        {(prefClick ? (
+          <div className="pref-inner">pref</div>
+          ) : (
+          <div className="main-inner">
+          main
+          </div>
+        ))}
       </div>
 
       <div className="footer">
