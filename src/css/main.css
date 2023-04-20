@@ -1,0 +1,14 @@
+.main {
+  border: solid 1px hotpink;
+  width: auto;
+  height: 15rem;
+  margin: 5rem;
+  color: white;
+}
+
+.main-inner {
+  border: solid 1px hotpink;
+  width: auto;
+  height: 10rem;
+  margin-block: 2rem;
+}
