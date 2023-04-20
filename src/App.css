@@ -1,4 +1,46 @@
+* {
+  background-color: #333;
+}
+
 .App {
-  text-align: center;
+  border: solid red;
+  width: 20rem;
+  height: 20rem;
+  margin: 5rem;
+}
+
+.header {
+  border: solid hotpink;
+  width: 20rem;
+  height: 20rem;
+  margin: 5rem;
+}
+
+.header-inner {
+  border: solid hotpink;
+  width: 20rem;
+  height: 20rem;
+  margin: 5rem;
+}
+
+.main {
+  border: solid hotpink;
+  width: 20rem;
+  height: 20rem;
+  margin: 5rem;
+}
+
+.main-inner {
+  border: solid hotpink;
+  width: 20rem;
+  height: 20rem;
+  margin: 5rem;
+}
+
+.footer {
+  border: solid hotpink;
+  width: 20rem;
+  height: 20rem;
+  margin: 5rem;  
 }
 
