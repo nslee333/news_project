@@ -13,8 +13,17 @@ function App() {
     <div className="App">
     
       <div className="header">
-        <div className="header-inner"></div>
+        <div className="header-inner">
+          <div className="header-title">
+            Latest News - Feed
+          </div>
+          <a onClick={() => setPrefClick(!prefClick)}>
+            <div className="header-settings">
+              Settings
+            </div>
+          </a>
 
+        </div>
       </div>
 
       <div className="main">
