@@ -8,16 +8,18 @@ import { useState } from "react";
 
 function newsPosts() {
   const displayPosts = posts.map((item, index) => {
-    <a href={posts[index].url}>
-      <div className="post">
-        <img
-          className="post-img"
-          src={posts[index].urlToImage}
-          alt="post photo"
-        />
-        <div className="post-title">{posts[index].title}</div>
-      </div>
-    </a>;
+    return (
+      <a href={posts[index].url}>
+        <div className="post">
+          <img
+            className="post-img"
+            src={posts[index].urlToImage}
+            alt="post photo"
+            />
+          <div className="post-title">{posts[index].title}ffff</div>
+        </div>
+      </a>
+    );
   });
 
   return <>{displayPosts}</>;
