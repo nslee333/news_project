@@ -20,8 +20,9 @@
 
   border-radius: 7px;
   width: auto;
+  height: auto;
   margin-block: 2rem;
-
+  padding: 0.5rem;
 
   @media (min-width: 320px) {
     width: 90%;
@@ -35,5 +36,88 @@
 }
 
 .post {
-  border: 2px solid hotpink;
+  /* display: flex;
+  flex-direction: column; */
+
+  /* border: 2px solid hotpink; */
+  border-radius: 7px;
+  /* display: flex; */
+  text-decoration: none;
+
+  color: #fff;
+  margin-block: 10px;
+  padding: 1rem;
+}
+
+.post-img {
+  /* max-width: 10rem; */
+  border-radius: 7px;
+
+  @media (min-width: 320px) {
+    max-height: 40vw;
+  }
+  @media (min-width: 500px) {
+    max-height: 5rem;
+  }
+  @media (min-width: 900px) {
+    /* max-width: 50%; */
+  }
+}
+
+.post-info {
+  /* border: 2px solid hotpink; */
+}
+
+.post-title {
+  display: flex;
+  text-decoration: none;
+  font-size: 20px;
+  margin-left: 1rem;
+
+  @media (min-width: 320px) {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    font-size: 18px;
+  }
+  @media (min-width: 500px) {
+    margin-left: 1rem;
+    margin-top: 0;
+    font-size: 20px;
+  }
+}
+
+.post-source {
+  margin-left: 1rem;
+  @media (min-width: 320px) {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  @media (min-width: 500px) {
+    margin-left: 1rem;
+    margin-top: 0;
+  }
+}
+
+.post-author {
+  margin-left: 1rem;
+  @media (min-width: 320px) {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  @media (min-width: 500px) {
+    margin-left: 1rem;
+    margin-top: 0;
+  }
+}
+
+.post-link {
+  color: #fff;
+  text-decoration: none;
+
+  @media (min-width: 320px) {
+    display: grid;
+  }
+  @media (min-width: 500px) {
+    display: flex;
+  }
 }
