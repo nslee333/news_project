@@ -16,7 +16,7 @@ function newsPosts() {
             src={posts[index].urlToImage}
             alt="post photo"
             />
-          <div className="post-title">{posts[index].title}ffff</div>
+          <div className="post-title">{posts[index].title}</div>
         </div>
       </a>
     );
