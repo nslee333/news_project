@@ -2,6 +2,7 @@ import "./css/App.css";
 import "./css/header.css";
 import "./css/footer.css";
 import "./css/main.css";
+import "./css/post.css";
 import image from "./sample_image.jpg";
 
 import { posts } from "./mockData";
