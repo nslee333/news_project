@@ -1,4 +1,4 @@
-import "./css/App.css";
+import "./css/app.css";
 import "./css/header.css";
 import "./css/footer.css";
 import "./css/main.css";
@@ -8,7 +8,7 @@ import image from "./sample_image.jpg";
 import { posts } from "./mockData";
 import { useState } from "react";
 
-function newsPosts() {
+function Posts() {
   const displayPosts = posts.map((item, index) => {
     return (
       <div className="post" key={posts[index].id}>
@@ -36,7 +36,7 @@ function App() {
   const [prefClick, setPrefClick] = useState(false);
 
   return (
-    <div className="App">
+    <div className="app">
       <div className="header">
         <div className="header-inner">
           <div className="header-title">News Feed</div>
@@ -50,7 +50,7 @@ function App() {
         {prefClick ? (
           <div className="pref-inner">pref</div>
         ) : (
-          <div className="main-inner">{newsPosts()}</div>
+          <div className="main-inner">{Posts()}</div>
         )}
       </div>
 
