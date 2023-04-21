@@ -2,7 +2,7 @@ import "./css/App.css";
 import "./css/header.css";
 import "./css/footer.css";
 import "./css/main.css";
-import image from "./sample_image.jpg"
+import image from "./sample_image.jpg";
 
 import { posts } from "./mockData";
 import { useState } from "react";
@@ -17,7 +17,7 @@ function newsPosts() {
             // src={posts[index].urlToImage}
             src={image}
             alt="post photo"
-            />
+          />
           <div className="post-info">
             <div className="post-title">{posts[index].title}</div>
             <div className="post-author">{posts[index].author}</div>
@@ -38,7 +38,7 @@ function App() {
     <div className="App">
       <div className="header">
         <div className="header-inner">
-          <div className="header-title">Latest News - Feed</div>
+          <div className="header-title">News Feed</div>
           <a onClick={() => setPrefClick(!prefClick)}>
             <div className="header-settings">Settings</div>
           </a>
