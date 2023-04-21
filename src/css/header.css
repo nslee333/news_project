@@ -4,7 +4,6 @@
   align-items: center;
   width: auto;
   height: 15rem;
-  border: 2px solid hotpink;
 
   @media (min-width: 320px) {
     height: 10rem;
