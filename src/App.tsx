@@ -33,22 +33,22 @@ function Posts() {
 }
 
 function App() {
-  const [prefClick, setPrefClick] = useState(false);
+  const [settClick, setSettClick] = useState(false);
 
   return (
     <div className="app">
       <div className="header">
         <div className="header-inner">
           <div className="header-title">News Feed</div>
-          <a onClick={() => setPrefClick(!prefClick)}>
+          <a onClick={() => setSettClick(!settClick)}>
             <div className="header-settings">Settings</div>
           </a>
         </div>
       </div>
 
       <div className="main">
-        {prefClick ? (
-          <div className="set-inner">pref</div>
+        {!settClick ? (
+          <div className="sett-inner">settings</div>
         ) : (
           <div className="main-inner">{Posts()}</div>
         )}
