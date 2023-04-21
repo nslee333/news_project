@@ -1,4 +1,5 @@
 type Post = {
+  id: number
   source: string;
   author: string;
   title: string;
@@ -9,41 +10,46 @@ type Post = {
 
 export const posts: Post[] = [
   {
-    source: "website.com",
-    author: "John Doe",
-    title: "Elon musk's wealth drops by learly 13 billion.",
+    id: 0,
+    source: "Wall Street Journal",
+    author: "wsj",
+    title: "Europe Air-Traffic Agency Under Attack From Hackers...",
     url: "url.com",
     urlToImage: "url.image.com",
     publishedAt: "2023-04-21T03:34:49Z",
   },
   {
-    source: "website.com",
-    author: "John Doe",
-    title: "Elon musk's wealth drops by learly 13 billion.",
+    id: 1,
+    source: "Wall Street Journal",
+    author: "wsj",
+    title: "Europe Air-Traffic Agency Under Attack From Hackers...",
     url: "url.com",
     urlToImage: "url.image.com",
     publishedAt: "2023-04-21T03:34:49Z",
   },
   {
-    source: "website.com",
-    author: "John Doe",
-    title: "Elon musk's wealth drops by learly 13 billion.",
+    id: 2,
+    source: "Wall Street Journal",
+    author: "wsj",
+    title: "Europe Air-Traffic Agency Under Attack From Hackers...",
     url: "url.com",
     urlToImage: "url.image.com",
     publishedAt: "2023-04-21T03:34:49Z",
   },
   {
-    source: "website.com",
-    author: "John Doe",
-    title: "Elon musk's wealth drops by learly 13 billion.",
+    id: 3,
+    source: "Wall Street Journal",
+    author: "wsj",
+    title: "Europe Air-Traffic Agency Under Attack From Hackers...",
     url: "url.com",
     urlToImage: "url.image.com",
     publishedAt: "2023-04-21T03:34:49Z",
   },
   {
-    source: "website.com",
-    author: "John Doe",
-    title: "Elon musk's wealth drops by learly 13 billion.",
+    id: 4,
+    source: "Wall Street Journal",
+    author: "wsj",
+    title: "Europe Air-Traffic Agency Under Attack From Hackers...",
     url: "url.com",
     urlToImage: "url.image.com",
     publishedAt: "2023-04-21T03:34:49Z",
