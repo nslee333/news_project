@@ -35,6 +35,7 @@
 }
 
 .header-title {
+  cursor: pointer;
   @media (min-width: 320px) {
     font-size: 20px;
   }
@@ -49,4 +50,8 @@
 .header-settings {
   font-size: 20px;
   cursor: pointer;
+}
+
+a:hover {
+  transform: translateY(-2px);
 }
