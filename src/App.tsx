@@ -48,7 +48,7 @@ function App() {
 
       <div className="main">
         {prefClick ? (
-          <div className="pref-inner">pref</div>
+          <div className="set-inner">pref</div>
         ) : (
           <div className="main-inner">{Posts()}</div>
         )}
