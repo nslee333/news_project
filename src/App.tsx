@@ -7,21 +7,17 @@ import "./css/settings.css"
 
 import Posts from "./components/Posts";
 import Settings from "./components/Settings";
-import { useState } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 
 function App() {
-  const [settClick, setSettClick] = useState(false);
+// & Need redux here to move state between App and Header.
 
   return (
     <div className="app">
       <div className="header">
-        <div className="header-inner">
-          <div className="header-title">News Feed</div>
-          <a onClick={() => setSettClick(!settClick)}>
-            <div className="header-settings">Settings</div>
-          </a>
-        </div>
+        {Header()}
       </div>
 
       <div className="main">
@@ -35,7 +31,7 @@ function App() {
       </div>
 
       <div className="footer">
-        <div className="footer-inner"></div>
+        {Footer()}
       </div>
     </div>
   );
