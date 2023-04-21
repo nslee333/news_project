@@ -1,4 +1,58 @@
 .sett-inner {
+  background-color: #3d3d3d;
+  border-radius: 7px;
+}
+
+.sett {
   height: fit-content;
-  width: 20rem;
+  background-color: #3d3d3d;
+  width: 30rem;
+  height: fit-content;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  border-radius: 7px;
+}
+
+.sett-title {
+  background-color: #3d3d3d;
+  font-size: 20px;
+  margin-bottom: 2rem;
+}
+
+.sett-feed {
+  background-color: #3d3d3d;
+  
+}
+
+.feed-title {
+  background-color: #3d3d3d;
+  margin-bottom: 1rem;
+
+}
+
+.sett-filter {
+  background-color: #3d3d3d;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  
+}
+
+.filter-title {
+  background-color: #3d3d3d;
+  
+}
+
+.sett-block {
+  background-color: #3d3d3d;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  
+}
+
+
+.block-title {
+  background-color: #3d3d3d;
+
 }
