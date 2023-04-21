@@ -4,7 +4,6 @@
   align-items: center;
   width: auto;
   height: 15rem;
-  margin-bottom: 5rem;
   border: 2px solid hotpink;
 
   @media (min-width: 320px) {
@@ -16,7 +15,6 @@
   @media (min-width: 900px) {
     height: 15rem;
   }
-
 }
 
 .header-inner {
@@ -26,7 +24,7 @@
   margin-block: 2rem;
   align-items: center;
   height: 5rem;
-  
+
   @media (min-width: 320px) {
     width: 90%;
   }
@@ -39,7 +37,6 @@
 }
 
 .header-title {
-
   @media (min-width: 320px) {
     font-size: 20px;
   }
@@ -49,7 +46,6 @@
   @media (min-width: 900px) {
     font-size: 30px;
   }
-  
 }
 
 .header-settings {
