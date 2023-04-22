@@ -9,15 +9,17 @@ import Posts from "./components/Posts";
 import Settings from "./components/Settings";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { useState } from "react";
 
 
 function App() {
 // & Need redux here to move state between App and Header.
+const [settClick, setSettClick] = useState(false);
 
   return (
     <div className="app">
       <div className="header">
-        {Header()}
+        <Header />
       </div>
 
       <div className="main">
@@ -31,7 +33,7 @@ function App() {
       </div>
 
       <div className="footer">
-        {Footer()}
+        <Footer />
       </div>
     </div>
   );
