@@ -1,9 +1,10 @@
 import "../css/settings.css";
+import { reducer } from "../state/reducer";
 
 
 
 export default function Settings() {
-  // & Redux entry here.
+  // & useReducer entry here.
 
 
   return (
