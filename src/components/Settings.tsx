@@ -1,10 +1,12 @@
 import "../css/settings.css";
 import { reducer } from "../state/reducer";
+import { useReducer } from "react";
 
 
 
 export default function Settings() {
-  // & useReducer entry here.
+  const initialState = {};
+  const [state, dispatch] = useReducer(reducer, initialState);
 
 
   return (
