@@ -7,8 +7,8 @@ import {State} from "../state/reducer"
 
 export default function Settings() {
   const initialState: State = {
-    sourcesWanted: ["CNN", "Fox", "New York Times"],
-    sourcesBlocked: ["Cnnm", "Fox", "New York Times"],
+    sourcesWanted: ["CNN", "Fox", "New York Times", "CNN", "Fox"],
+    sourcesBlocked: ["CNN", "Fox", "New York Times", "CNN", "Fox"],
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -18,7 +18,7 @@ export default function Settings() {
 
     const sources = state.sourcesWanted.map((source, index) => {
       return (
-        <div className="filter-map">
+        <div className="filter-map" key={index}>
         {state.sourcesBlocked[index]}
       </div>
       )
@@ -37,7 +37,7 @@ export default function Settings() {
 
     const blockedSources = state.sourcesBlocked.map((source, index) => {
       return (
-        <div className="block-map">
+        <div className="block-map" key={index}>
           {state.sourcesBlocked[index]}
         </div>
       );
