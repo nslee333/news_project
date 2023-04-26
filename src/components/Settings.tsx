@@ -7,8 +7,8 @@ import {State} from "../state/reducer"
 
 export default function Settings() {
   const initialState: State = {
-    sourcesWanted: [],
-    sourcesBlocked: [],
+    sourcesWanted: ["CNN", "Fox", "New York Times"],
+    sourcesBlocked: ["Cnnm", "Fox", "New York Times"],
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -18,18 +18,36 @@ export default function Settings() {
 
     const sources = state.sourcesWanted.map((source, index) => {
       return (
-        <div>
-          {state.sourcesWanted[index]}
-        </div>
+        <div className="filter-sources">
+        {state.sourcesBlocked[index]}
+      </div>
       )
     });
 
 
     return (
       <>
-        <div>
-          {sources}
+        {sources}
+      </>
+    );
+  }
+
+  function displaySourcesBlocked() {
+    if (state instanceof Error) return;
+
+    const blockedSources = state.sourcesBlocked.map((source, index) => {
+      return (
+        <div className="block-sources">
+          {state.sourcesBlocked[index]}
         </div>
+      );
+    })
+
+
+
+    return (
+      <>
+        {blockedSources}
       </>
     );
   }
@@ -44,12 +62,14 @@ export default function Settings() {
         <div className="sett-feed">
           <div className="feed-title">Customize your feed</div>
           <div className="sett-filter">
-            <div className="filter-title">Restrict feed to wanted news sources</div>
+            <div className="filter-title">Wanted news sources</div>
             <div className="filter-title">
-              {
-                state ? displayWantedSources() : <></>
-              }
-              <input className=""/>
+              <div >
+                {
+                  state ? displayWantedSources() : <></>
+                }
+              </div>
+              <input className="" type="text"/>
             </div>
             
           </div>
@@ -57,7 +77,12 @@ export default function Settings() {
           <div className="sett-block">
             <div className="block-title">Blocked news sources</div>
             <div className="block-title">Search that contains the blocked news sources.</div>
-        
+              <div >
+                {
+                  state ? displaySourcesBlocked() : <></>
+                }
+              </div>
+              <input className="" type="text" />
           </div>
         </div>
 
