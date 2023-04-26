@@ -18,7 +18,7 @@ export default function Settings() {
 
     const sources = state.sourcesWanted.map((source, index) => {
       return (
-        <div className="filter-sources">
+        <div className="filter-map">
         {state.sourcesBlocked[index]}
       </div>
       )
@@ -37,7 +37,7 @@ export default function Settings() {
 
     const blockedSources = state.sourcesBlocked.map((source, index) => {
       return (
-        <div className="block-sources">
+        <div className="block-map">
           {state.sourcesBlocked[index]}
         </div>
       );
@@ -64,7 +64,7 @@ export default function Settings() {
           <div className="sett-filter">
             <div className="filter-title">Wanted news sources</div>
             <div className="filter-title">
-              <div >
+              <div className="filter-sources">
                 {
                   state ? displayWantedSources() : <></>
                 }
@@ -76,8 +76,7 @@ export default function Settings() {
 
           <div className="sett-block">
             <div className="block-title">Blocked news sources</div>
-            <div className="block-title">Search that contains the blocked news sources.</div>
-              <div >
+              <div className='block-sources'>
                 {
                   state ? displaySourcesBlocked() : <></>
                 }
