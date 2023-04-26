@@ -64,5 +64,16 @@
 
 .block-title {
   background-color: #3d3d3d;
+  
+}
 
+.filter-sources {
+  display: grid;
+  background-color: #3d3d3d;
+}
+
+.block-sources {
+  display: grid;
+  background-color: #3d3d3d;
+  
 }
