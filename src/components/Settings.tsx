@@ -5,7 +5,11 @@ import { useReducer } from "react";
 
 
 export default function Settings() {
-  const initialState = {};
+  const initialState = {
+    sourcesWanted: [],
+    sourcesBlocked: [],
+  };
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
 

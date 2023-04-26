@@ -1,5 +1,6 @@
 type Action = {
-  type: string
+  type: string,
+  source?: string
 }
 
 type State = {
@@ -8,18 +9,22 @@ type State = {
 }
 
 
-export function reducer(state: State, action: Action, source: string): State {
+export function reducer(state: any, action: any) {
   switch (action.type) {
-    
+
     case "add_to_sources_wanted":
-     return {
-      sourcesWanted: [...state.sourcesWanted, source],
+      if (!action.source) return Error;
+
+      return {
+      sourcesWanted: [...state.sourcesWanted, action.source],
       sourcesBlocked: [...state.sourcesBlocked],
-     }
+      }
 
     case "remove_from_sources_wanted":
+      if (!action.source) break;
+
       for (let count = 0; count <= state.sourcesWanted.length; count++) {
-        if (state.sourcesWanted[count] === source) {
+        if (state.sourcesWanted[count] === action.source) {
           state.sourcesWanted.splice(count, 1);
         }
       }
@@ -30,28 +35,25 @@ export function reducer(state: State, action: Action, source: string): State {
       }
 
     case "add_to_blocked_sources":
+      if (!action.source) break;
+
       return {
         sourcesWanted: [...state.sourcesWanted],
-        sourcesBlocked: [...state.sourcesBlocked, source],
-       }
+        sourcesBlocked: [...state.sourcesBlocked, action.source],
+      }
 
     case "remove_from_blocked_sources":
-       for (let count = 0; count <= state.sourcesBlocked.length; count++) {
-        if (state.sourcesBlocked[count] === source) {
+      if (!action.source) break;
+
+        for (let count = 0; count <= state.sourcesBlocked.length; count++) {
+        if (state.sourcesBlocked[count] === action.source) {
           state.sourcesBlocked.splice(count, 1);
         }
-       }
+        }
 
       return {
         sourcesWanted: [...state.sourcesWanted],
-        sourcesBlocked: [...state.sourcesBlocked, source],
+        sourcesBlocked: [...state.sourcesBlocked, action.source],
       }
-
-    default:
-      return {
-        sourcesWanted: [...state.sourcesWanted],
-        sourcesBlocked: [...state.sourcesBlocked],
-      }
-  }
-
+    }
 }
