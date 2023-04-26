@@ -3,7 +3,7 @@ type Action = {
   source?: string
 }
 
-type State = {
+export type State = {
   sourcesWanted: string[],
   sourcesBlocked: string[],
 }
@@ -13,15 +13,13 @@ export function reducer(state: any, action: any) {
   switch (action.type) {
 
     case "add_to_sources_wanted":
-      if (!action.source) return Error;
 
       return {
-      sourcesWanted: [...state.sourcesWanted, action.source],
-      sourcesBlocked: [...state.sourcesBlocked],
+        sourcesWanted: [...state.sourcesWanted, action.source],
+        sourcesBlocked: [...state.sourcesBlocked],
       }
 
     case "remove_from_sources_wanted":
-      if (!action.source) break;
 
       for (let count = 0; count <= state.sourcesWanted.length; count++) {
         if (state.sourcesWanted[count] === action.source) {
@@ -35,7 +33,6 @@ export function reducer(state: any, action: any) {
       }
 
     case "add_to_blocked_sources":
-      if (!action.source) break;
 
       return {
         sourcesWanted: [...state.sourcesWanted],
@@ -56,4 +53,5 @@ export function reducer(state: any, action: any) {
         sourcesBlocked: [...state.sourcesBlocked, action.source],
       }
     }
+    return new Error("Unknown action.")
 }
