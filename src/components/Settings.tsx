@@ -8,7 +8,7 @@ import {State} from "../state/reducer"
 export default function Settings() {
   const initialState: State = {
     sourcesWanted: ["CNN", "Fox", "New York Times", "CNN", "Fox"],
-    sourcesBlocked: ["CNN", "Fox", "New York Times", "CNN", "Fox"],
+    sourcesBlocked: ["CNN", "Fox", "Washington Post", "CNN", "Fox"],
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -20,6 +20,7 @@ export default function Settings() {
       return (
         <div className="filter-map" key={index}>
         {state.sourcesBlocked[index]}
+        <button className="filter-btn">Delete</button>
       </div>
       )
     });
@@ -39,6 +40,7 @@ export default function Settings() {
       return (
         <div className="block-map" key={index}>
           {state.sourcesBlocked[index]}
+        <button className="block-btn">Delete</button>
         </div>
       );
     })
