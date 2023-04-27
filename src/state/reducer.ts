@@ -50,7 +50,7 @@ export function reducer(state: any, action: any) {
 
       return {
         sourcesWanted: [...state.sourcesWanted],
-        sourcesBlocked: [...state.sourcesBlocked, action.source],
+        sourcesBlocked: [...state.sourcesBlocked],
       }
     }
     return new Error("Unknown action.")
