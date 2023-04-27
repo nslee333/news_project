@@ -19,12 +19,16 @@ export default function Settings() {
     const sources = state.sourcesWanted.map((source, index) => {
       return (
         <div className="filter-map" key={index}>
-        {state.sourcesBlocked[index]}
-        <button className="filter-btn">Delete</button>
+        {state.sourcesWanted[index]}
+        <button className="filter-btn" onClick={() => dispatch(
+          {
+            type: "remove_from_sources_wanted",
+            source: state.sourcesWanted[index]
+          })}
+        >Delete</button>
       </div>
       )
     });
-
 
     return (
       <>
@@ -40,7 +44,12 @@ export default function Settings() {
       return (
         <div className="block-map" key={index}>
           {state.sourcesBlocked[index]}
-        <button className="block-btn">Delete</button>
+        <button className="block-btn" onClick={() => dispatch(
+          {
+            type: "remove_from_blocked_sources",
+            source: state.sourcesBlocked[index]
+          }
+        )}>Delete</button>
         </div>
       );
     })
