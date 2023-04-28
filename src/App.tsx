@@ -7,14 +7,15 @@ import "./css/settings.css"
 
 import Posts from "./components/Posts";
 import Settings from "./components/Settings";
-import Header from "./components/Header";
+import Header, { initialHeaderState } from "./components/Header";
 import Footer from "./components/Footer";
-import { useState } from "react";
+import { useReducer } from "react";
+import { headerReducer } from "./state/reducers";
 
 
 function App() {
-// & Need redux here to move state between App and Header.
-const [settClick, setSettClick] = useState(false);
+const [state, dispatch] = useReducer(headerReducer, initialHeaderState);
+if (state === undefined) return <>Loading...</>;
 
   return (
     <div className="app">
@@ -23,7 +24,7 @@ const [settClick, setSettClick] = useState(false);
       </div>
 
       <div className="main">
-        {!settClick ? (
+        {state.displayFeed ? (
           <div className="sett-inner">
             {Settings()}
           </div>

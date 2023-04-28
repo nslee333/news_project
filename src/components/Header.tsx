@@ -1,16 +1,21 @@
 import { useReducer, useState } from "react";
-import { reducer } from "../state/reducers";
+import { headerReducer } from "../state/reducers";
+
+export const initialHeaderState = {
+  displayFeed: true,
+} 
+
 
 export default function Header() {
-  const [settClick, setSettClick] = useState(false);
+  const [state, dispatch] = useReducer(headerReducer, initialHeaderState);
 
   return (
     <>
       <div className="header-inner">
-        <a onClick={() => setSettClick(!settClick)}>
+        <a onClick={() => dispatch("switch_from_feed")}>
           <div className="header-title">News Feed</div>
         </a>
-        <a onClick={() => setSettClick(!settClick)}>
+        <a onClick={() => dispatch("switch_from_settings")}>
           <div className="header-settings">Settings</div>
         </a>
       </div>

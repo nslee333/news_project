@@ -51,3 +51,16 @@ export function settingsReducer(state: any, action: any ) {
     }
     return new Error("Unknown action.")
 }
+
+export function headerReducer(state: any, action: any) {
+  switch (action.type) {
+    case "switch_from_feed":
+        return {
+          displayFeed: true
+        }
+        case "switch_from_settings":
+          return {
+            displayFeed: false
+          }
+      }
+  }
