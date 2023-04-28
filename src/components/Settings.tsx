@@ -1,12 +1,12 @@
 import "../css/settings.css";
 import { settingsReducer } from "../state/reducers";
 import { useReducer } from "react";
-import {State} from "../state/reducers"
+import {SettingsState} from "../state/reducers"
 
 
 
 export default function Settings() {
-  const initialState: State = {
+  const initialState: SettingsState = {
     sourcesWanted: ["CNN", "Fox", "New York Times", "CNN", "Fox"],
     sourcesBlocked: ["CNN", "Fox", "Washington Post", "CNN", "Fox"],
   };

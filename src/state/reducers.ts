@@ -3,7 +3,7 @@ type Action = {
   source?: string
 }
 
-export type State = {
+export type SettingsState = {
   sourcesWanted: string[],
   sourcesBlocked: string[],
 }
