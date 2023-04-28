@@ -1,15 +1,7 @@
-type Action = {
-  type: string,
-  source?: string
-}
-
-export type SettingsState = {
-  sourcesWanted: string[],
-  sourcesBlocked: string[],
-}
+import { SettingsAction, SettingsState } from "../types/types";
 
 
-export function settingsReducer(state: any, action: any) {
+export function settingsReducer(state: any, action: any ) {
   switch (action.type) {
 
     case "add_to_sources_wanted":
