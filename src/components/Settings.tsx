@@ -1,5 +1,5 @@
 import "../css/settings.css";
-import { reducer } from "../state/reducer";
+import { settingsReducer } from "../state/reducer";
 import { useReducer } from "react";
 import {State} from "../state/reducer"
 
@@ -11,7 +11,7 @@ export default function Settings() {
     sourcesBlocked: ["CNN", "Fox", "Washington Post", "CNN", "Fox"],
   };
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(settingsReducer, initialState);
 
   function displayWantedSources() {
     if (state instanceof Error) return;

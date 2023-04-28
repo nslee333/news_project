@@ -9,7 +9,7 @@ export type State = {
 }
 
 
-export function reducer(state: any, action: any) {
+export function settingsReducer(state: any, action: any) {
   switch (action.type) {
 
     case "add_to_sources_wanted":
@@ -21,8 +21,12 @@ export function reducer(state: any, action: any) {
 
     case "remove_from_sources_wanted":
 
-      for (let count = 0; count <= state.sourcesWanted.length; count++) {
-        if (state.sourcesWanted[count] === action.source) {
+      for (
+        let count = 0; 
+        count <= state.sourcesWanted.length; 
+        count++
+        ) {
+          if (state.sourcesWanted[count] === action.source) {
           state.sourcesWanted.splice(count, 1);
         }
       }
