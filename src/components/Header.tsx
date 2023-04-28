@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react";
-import { reducer } from "../state/reducer";
+import { reducer } from "../state/reducers";
 
 export default function Header() {
   const [settClick, setSettClick] = useState(false);

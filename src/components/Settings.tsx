@@ -1,7 +1,7 @@
 import "../css/settings.css";
-import { settingsReducer } from "../state/reducer";
+import { settingsReducer } from "../state/reducers";
 import { useReducer } from "react";
-import {State} from "../state/reducer"
+import {State} from "../state/reducers"
 
 
 
