@@ -52,15 +52,20 @@ export function settingsReducer(state: any, action: any ) {
     return new Error("Unknown action.")
 }
 
+// & just got reducer to call
+
 export function headerReducer(state: any, action: any) {
   switch (action.type) {
     case "switch_from_feed":
+      console.log("switch_from_feed")
         return {
-          displayFeed: true
+          displaySettings: false
         }
-        case "switch_from_settings":
-          return {
-            displayFeed: false
-          }
+
+    case "switch_from_settings":
+      console.log("switch_from_sett")
+      return {
+        displaySettings: true
       }
+  }
   }
