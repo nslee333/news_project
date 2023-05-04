@@ -9,18 +9,24 @@ import Posts from "./components/Posts";
 import Settings from "./components/Settings";
 import Header, { initialHeaderState } from "./components/Header";
 import Footer from "./components/Footer";
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useState } from "react";
 import { headerReducer } from "./state/reducers";
 
-function Display() {
-  const [state, dispatch] = useReducer(headerReducer, initialHeaderState);
 
-  if (state === undefined || state instanceof Error) {
+export type stateProps = {
+  displaySettings: boolean; 
+}
+
+function Display(state: stateProps) {
+
+  const displaySettings = state.displaySettings;
+
+  if (displaySettings === undefined || state instanceof Error) {
     return (
     <>Loading...</>
   );
 
-  } else if (state.displaySettings) {
+  } else if (displaySettings === true) {
     return (
        <div className="sett-inner">{Settings()}</div>
     );
@@ -32,34 +38,20 @@ function Display() {
   }
 }
 
-// & App won't update when sett / feed is clicked.
-// * How can I make the App update?
-// * Am I using useReducer correctly?
-
 
 function App() {
-const [state, dispatch] = useReducer(headerReducer, initialHeaderState);
-if (state instanceof Error) return (<></>);
-console.log(state?.displaySettings, "HFHF")
+  const [state, dispatch] = useReducer(headerReducer, initialHeaderState);
 
-
-// useEffect(() => {
-// }, [state?.displaySettings])
-
-
-
-
-
-
+  if (state instanceof Error) return (<></>);
 
   return (
     <div className="app">
       <div className="header">
-        <Header />
+        <Header dispatch={dispatch}/>
       </div>
 
       <div className="main">
-        {Display()}
+        <Display {...state}/>
       </div>
 
       <div className="footer">

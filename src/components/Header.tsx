@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import { headerReducer } from "../state/reducers";
+import { stateProps } from "../App";
 
 export const initialHeaderState = {
   displaySettings: false,
@@ -12,17 +13,19 @@ const action_sett = {
   type: "switch_from_settings"
 }
 
+type dispatchObj = {
+  dispatch: Function
+}
 
-export default function Header() {
-  const [state, dispatch] = useReducer(headerReducer, initialHeaderState);
+export default function Header(props: dispatchObj) {
 
   return (
     <>
       <div className="header-inner">
-        <a onClick={() => dispatch(action_feed)}>
+        <a onClick={() => props.dispatch(action_feed)}>
           <div className="header-title">News Feed</div>
         </a>
-        <a onClick={() => dispatch(action_sett)}>
+        <a onClick={() => props.dispatch(action_sett)}>
           <div className="header-settings">Settings</div>
         </a>
       </div>
