@@ -58,15 +58,11 @@ export function settingsReducer(state: any, action: any ) {
 export function headerReducer(state: any, action: any) {
   switch (action.type) {
     case "switch_from_feed":
-      console.log("switch_from_feed")
-      console.log(state.displaySettings)
         return {
           displaySettings: false
         }
 
     case "switch_from_settings":
-      console.log("switch_from_settings")
-      console.log(state.displaySettings)
       return {
         displaySettings: true
       }
