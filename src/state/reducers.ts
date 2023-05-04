@@ -48,8 +48,10 @@ export function settingsReducer(state: any, action: any ) {
         sourcesWanted: [...state.sourcesWanted],
         sourcesBlocked: [...state.sourcesBlocked],
       }
+
+    default: 
+      return new Error("Unknown action.")
     }
-    return new Error("Unknown action.")
 }
 
 
@@ -63,10 +65,12 @@ export function headerReducer(state: any, action: any) {
         }
 
     case "switch_from_settings":
-      console.log("switch_from_sett")
+      console.log("switch_from_settings")
       console.log(state.displaySettings)
       return {
         displaySettings: true
       }
+    default: 
+      return new Error("Unknown action.")
   }
 }
