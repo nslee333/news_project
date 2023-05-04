@@ -7,8 +7,8 @@ import { SettingsState } from "../types/types";
 
 export default function Settings() {
   const initialState: SettingsState = {
-    sourcesWanted: ["CNN", "Fox", "New York Times", "CNN", "Fox"],
-    sourcesBlocked: ["CNN", "Fox", "Washington Post", "CNN", "Fox"],
+    sourcesWanted: [],
+    sourcesBlocked: [],
   };
 
   const [state, dispatch] = useReducer(settingsReducer, initialState);
@@ -92,7 +92,7 @@ export default function Settings() {
                   state ? displaySourcesBlocked() : <></>
                 }
               </div>
-              <input className="" type="text" />
+              <input type="text" />
           </div>
         </div>
 
