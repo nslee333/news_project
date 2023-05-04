@@ -15,7 +15,7 @@ import { headerReducer } from "./state/reducers";
 function Display() {
   const [state, dispatch] = useReducer(headerReducer, initialHeaderState);
 
-  if (state === undefined) {
+  if (state === undefined || state instanceof Error) {
     return (
     <>Loading...</>
   );
@@ -39,11 +39,12 @@ function Display() {
 
 function App() {
 const [state, dispatch] = useReducer(headerReducer, initialHeaderState);
+if (state instanceof Error) return (<></>);
 console.log(state?.displaySettings, "HFHF")
 
 
-useEffect(() => {
-}, [state?.displaySettings])
+// useEffect(() => {
+// }, [state?.displaySettings])
 
 
 

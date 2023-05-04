@@ -16,7 +16,7 @@ export default function Settings() {
   function displayWantedSources() {
     if (state instanceof Error) return;
 
-    const sources = state.sourcesWanted.map((source, index) => {
+    const sources = state?.sourcesWanted.map((source, index) => {
       return (
         <div className="filter-map" key={index}>
         {state.sourcesWanted[index]}
@@ -40,7 +40,7 @@ export default function Settings() {
   function displaySourcesBlocked() {
     if (state instanceof Error) return;
 
-    const blockedSources = state.sourcesBlocked.map((source, index) => {
+    const blockedSources = state?.sourcesBlocked.map((source, index) => {
       return (
         <div className="block-map" key={index}>
           {state.sourcesBlocked[index]}
