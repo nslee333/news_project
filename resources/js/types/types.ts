@@ -7,7 +7,3 @@ export type SettingsState = {
   sourcesWanted: string[],
   sourcesBlocked: string[],
 }
-
-export type HeaderState = {
-
-}
