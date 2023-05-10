@@ -1,14 +1,14 @@
-import "./css/app.css";
-import "./css/header.css";
-import "./css/footer.css";
-import "./css/main.css";
-import "./css/post.css";
-import "./css/settings.css"
+import "../../css/app.css";
+import "../../css/header.css";
+import "../../css/footer.css";
+import "../../css/main.css";
+import "../../css/post.css";
+import "../../css/settings.css"
 
-import Posts from "./components/Posts";
-import Settings from "./components/Settings";
-import Header, { initialHeaderState } from "./components/Header";
-import Footer from "./Components/Footer";
+import Posts from "../../Components/Posts";
+import Settings from "../../Components/Settings";
+import Header, { initialHeaderState } from "../../Components/Header";
+import Footer from "../../Components/Footer";
 import { useReducer, useEffect, useState } from "react";
 import { headerReducer } from "../../temp/src/state/reducers";
 
