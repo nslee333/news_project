@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from '../../../../resources/js/App';
+import App from '../../App';
 
 // & `npm test -- --coverage`
 // ^ Arrange -> Act -> Assert

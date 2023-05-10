@@ -1,1 +1,0 @@
-A micro-project to get familiar with Redux, the goal is to be done with project in one week.
