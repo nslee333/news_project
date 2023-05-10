@@ -9,7 +9,7 @@ export default function Posts() {
           <img
             className="post-img"
             // src={posts[index].urlToImage}
-            src={image}
+            // src={image}
             alt="post photo"
           />
           <div className="post-info">
