@@ -1,6 +1,4 @@
 import { posts } from "../mockData";
-import image from "../sample_image.jpg";
-
 
 
 export default function Posts() {
