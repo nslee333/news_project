@@ -1,12 +1,11 @@
-import "../css/settings.css";
+import "../../css/settings.css";
 import { settingsReducer } from "../state/reducers";
 import { useReducer } from "react";
-import { SettingsState } from "../types/types";
 
 
 
 export default function Settings() {
-  const initialState: SettingsState = {
+  const initialState = {
     sourcesWanted: [],
     sourcesBlocked: [],
   };

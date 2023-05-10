@@ -1,6 +1,3 @@
-import { useReducer, useState } from "react";
-import { headerReducer } from "../state/reducers";
-import { stateProps } from "../App";
 
 export const initialHeaderState = {
   displaySettings: false,
@@ -13,11 +10,8 @@ const action_sett = {
   type: "switch_from_settings"
 }
 
-type dispatchObj = {
-  dispatch: Function
-}
 
-export default function Header(props: dispatchObj) {
+export default function Header(props) {
 
   return (
     <>
