@@ -13,10 +13,6 @@ import { useReducer, useEffect, useState } from "react";
 import { headerReducer } from "../state/reducers";
 
 
-// export type stateProps = {
-//   displaySettings: boolean; 
-// }
-
 function Display(state) {
 
   const displaySettings = state.displaySettings;
