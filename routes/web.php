@@ -53,18 +53,16 @@ Route::get('/', function ()
     // return json_encode($data);
 
     
-    $data = Http::get("https://newsapi.org/v2/top-headlines", [
+    $props = Http::get("https://newsapi.org/v2/top-headlines", [
         "apiKey" => env('NEWS_API_KEY'),
         "language" => "en"
     ]);
+
+    $data = [
+        'props' => $props,
+    ];
     
-    return Inertia::render('Main', [
-        'data' => Http::get("https://newsapi.org/v2/top-headlines", [
-            "apiKey" => env('NEWS_API_KEY'),
-            "language" => "en"
-        ])
-    ]);
-    // return $response;
+    return Inertia::render('Main', $data);
 });
 
 require __DIR__.'/auth.php';

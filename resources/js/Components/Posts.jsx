@@ -44,9 +44,12 @@ import { posts } from "../mockData";
 //   ]
 // }
 
+import { usePage } from '@inertiajs/inertia-react';
 
+export default function Posts() {
 
-export default function Posts(data) {
+  const {data} = usePage().props;
+  
 
   if (data !== undefined) {
     const articles = data.articles;
