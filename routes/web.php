@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+// use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,56 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Main', []);
+// function data() 
+// {
+//     $data = MainController::fetch();
+
+//     return $data;
+
+// } 
+function fetch() 
+{
+    $timer = time();
+    $data_save = [];
+    // echo $data_save[0];
+    
+    if ($timer < time()) {
+        $timer = time() + 15 * 60;
+        $response = Http::get("https://newsapi.org/v2/top-headlines", [
+            "apiKey" => env('NEWS_API_KEY'),
+            "language" => "en"
+        ]);
+        $data_save = $response;
+        return $response;
+
+    } else {
+        return $data_save;
+    }
+
+}
+
+// & Trying to send data to frontend.
+
+// Route::get('/', [MainController::class, 'fetch']);
+Route::get('/', function () 
+{
+    // $data = fetch();
+
+    // return json_encode($data);
+
+    
+    $data = Http::get("https://newsapi.org/v2/top-headlines", [
+        "apiKey" => env('NEWS_API_KEY'),
+        "language" => "en"
+    ]);
+    
+    return Inertia::render('Main', [
+        'data' => Http::get("https://newsapi.org/v2/top-headlines", [
+            "apiKey" => env('NEWS_API_KEY'),
+            "language" => "en"
+        ])
+    ]);
+    // return $response;
 });
 
 require __DIR__.'/auth.php';

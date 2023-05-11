@@ -13,7 +13,7 @@ import { useReducer, useEffect, useState } from "react";
 import { headerReducer } from "../state/reducers";
 
 
-function Display(state) {
+function Display(state, data) {
 
   const displaySettings = state.displaySettings;
 
@@ -24,21 +24,22 @@ function Display(state) {
 
   } else if (displaySettings === true) {
     return (
-       <div className="sett-inner">{Settings()}</div>
+       <div className="sett-inner"><Settings /></div>
     );
 
   } else {
     return (
-      <div className="main-inner">{Posts()}</div>
+      <div className="main-inner"><Posts  {...data}/></div>
     )
   }
 }
 
 
-function Main() {
+function Main(data) {
+  
+  
   const [state, dispatch] = useReducer(headerReducer, initialHeaderState);
 
-  if (state instanceof Error) return (<></>);
 
   return (
     <div className="app">
@@ -47,7 +48,7 @@ function Main() {
       </div>
 
       <div className="main">
-        <Display {...state}/>
+        <Display {...state} {...data} />
       </div>
 
       <div className="footer">
