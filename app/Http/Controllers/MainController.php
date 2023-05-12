@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
 use Illuminate\Http\Client\Response;
 
-  
+
   class MainController extends Controller
   {
     public $cooldown = 0;
@@ -49,7 +49,6 @@ use Illuminate\Http\Client\Response;
           "language" => "en"
       ]);
 
-      
       $this->start_cooldown();
       $this->response_copy = json_decode($response);
 
@@ -62,11 +61,8 @@ use Illuminate\Http\Client\Response;
     {
       $response = $this->decide();
 
-
-
      return Inertia::render('Main', [
       'props' => $response
     ]);
-    
   }
 }
