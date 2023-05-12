@@ -46,13 +46,14 @@ import { posts } from "../mockData";
 
 import { usePage } from '@inertiajs/inertia-react';
 
-export default function Posts() {
+export default function Posts(props) {
+  // console.log(props, "posts");
 
-  const {data} = usePage().props;
+  // const {data} = usePage().props;
   
 
-  if (data !== undefined) {
-    const articles = data.articles;
+  if (props !== undefined) {
+    const articles = props.articles;
     const displayPosts = articles.map((item, index) => {
       return (
         <div className="post" key={index}>

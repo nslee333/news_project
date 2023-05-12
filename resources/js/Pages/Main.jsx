@@ -13,7 +13,8 @@ import { useReducer, useEffect, useState } from "react";
 import { headerReducer } from "../state/reducers";
 
 
-function Display(state, data) {
+function Display(state, props) {
+  // console.log(props, "dis");
 
   const displaySettings = state.displaySettings;
 
@@ -29,13 +30,15 @@ function Display(state, data) {
 
   } else {
     return (
-      <div className="main-inner"><Posts  {...data}/></div>
+      <div className="main-inner"><Posts props={props} /></div>
     )
   }
 }
 
 
-function Main(data) {
+function Main(props) {
+  // console.log(props, "main");
+  // & getting props here but no news_api response included
   
   
   const [state, dispatch] = useReducer(headerReducer, initialHeaderState);
@@ -48,7 +51,7 @@ function Main(data) {
       </div>
 
       <div className="main">
-        <Display {...state} {...data} />
+        <Display {...state} props={props} />
       </div>
 
       <div className="footer">
