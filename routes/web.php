@@ -49,7 +49,7 @@ use App\Http\Controllers;
 Route::get('/', [MainController::class, 'index']);
 Route::get('/', function () 
 {
-    $props = MainController::fetch();
+    $props = MainController::fetch();  
     return MainController::index($props);
 });
 

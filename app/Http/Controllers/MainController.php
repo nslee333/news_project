@@ -21,36 +21,48 @@ use Inertia\Inertia;
   
   class MainController extends Controller
   {
-    public function fetch() 
+    public static function fetch() 
     // & Need to make sure this works.
     {
         $timer = time();
         $data_save = [];
         // echo $data_save[0];
+        $response = Http::get("https://newsapi.org/v2/top-headlines", [
+            "apiKey" => env('NEWS_API_KEY'),
+            "language" => "en"
+        ]);
         
         if ($timer < time()) {
             $timer = time() + 15 * 60;
-            $response = Http::get("https://newsapi.org/v2/top-headlines", [
-                "apiKey" => env('NEWS_API_KEY'),
-                "language" => "en"
-            ]);
             $data_save = $response;
             return $response;
-    
-        } else {
+            
+          } else {
             return $data_save;
+          }
+          
         }
-    
-    }
-    public function index($props) 
+    public static function index($props) 
     {
+      $response = Http::get("https://newsapi.org/v2/top-headlines", [
+          "apiKey" => env('NEWS_API_KEY'),
+          "language" => "en"
+      ]);
+
+      // & I'm finally passing data with response.
+      // & Now my issue is how do I access the response data?
+
       
-      // $props = fetch();
-      // echo $props;
-      
-    // & We're getting data from fetch().
-    // & React components are working properly.
-    // & With all of that in mind ~ The issue must be in the inertia render part.
+          // $res = MainController::fetch();
+
+          // echo $response;
+
+          $arr = $response;
+          
+      $props = [
+        "data" => $arr,
+        "name" => "lol"
+      ];
 
      return Inertia::render('Main', [
       'props' => $props

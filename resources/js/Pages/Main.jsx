@@ -37,7 +37,7 @@ function Display(state, props) {
 
 
 function Main(props) {
-  // console.log(props, "main");
+  console.log(props.props.data)
   // & getting props here but no news_api response included
   
   
