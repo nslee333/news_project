@@ -30,14 +30,14 @@ use Illuminate\Http\Client\Response;
       }
     }
 
-    public function decide(): array | Response
+    public function decide(): mixed
     {
       $cooldown_bool = $this->check_cooldown();
 
       if ($cooldown_bool) {
         return $this->response_copy;
       } else {
-        return $this->fetch_from_api();
+        return $this->fetch_from_api()->json();
       }
     }
 
@@ -60,8 +60,7 @@ use Illuminate\Http\Client\Response;
 
     public function index() 
     {
-
-      $response = $this->decide()->json();
+      $response = $this->decide();
 
 
 
