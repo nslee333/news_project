@@ -6,66 +6,67 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
+use Illuminate\Http\Client\Response;
 
-
-// public function fetch() 
-// {
-  //   $response = Http::get("https://newsapi.org/v2/top-headlines", [
-  //     "apiKey" => env('NEWS_API_KEY'),
-  //     "language" => "en"
-  //   ]);
-  //   return $response;
-  
-  // }
-  
   
   class MainController extends Controller
   {
-    public static function fetch() 
-    // & Need to make sure this works.
+    public $cooldown = 0;
+    public $response_copy = [];
+
+    public function start_cooldown(): void
     {
-        $timer = time();
-        $data_save = [];
-        // echo $data_save[0];
-        $response = Http::get("https://newsapi.org/v2/top-headlines", [
-            "apiKey" => env('NEWS_API_KEY'),
-            "language" => "en"
-        ]);
-        
-        if ($timer < time()) {
-            $timer = time() + 15 * 60;
-            $data_save = $response;
-            return $response;
-            
-          } else {
-            return $data_save;
-          }
-          
-        }
-    public static function index($props) 
+      $this->cooldown = time() + 30 * 60; 
+    }
+
+    public function check_cooldown(): Bool
+    {
+      $cooldown = $this->cooldown;
+
+      if ($cooldown == 0) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    public function decide(): array | Response
+    {
+      $cooldown_bool = $this->check_cooldown();
+
+      if ($cooldown_bool) {
+        return $this->response_copy;
+      } else {
+        return $this->fetch_from_api();
+      }
+    }
+
+
+    public function fetch_from_api(): Response
     {
       $response = Http::get("https://newsapi.org/v2/top-headlines", [
           "apiKey" => env('NEWS_API_KEY'),
           "language" => "en"
       ]);
 
-      // & I'm finally passing data with response.
-      // & Now my issue is how do I access the response data?
-
       
-          // $res = MainController::fetch();
+      $this->start_cooldown();
+      $this->response_copy = json_decode($response);
 
-          // echo $response;
+      return $response;
+    }
 
-          $arr = $response;
-          
-      $props = [
-        "data" => $arr,
-        "name" => "lol"
-      ];
+
+
+    public function index() 
+    {
+
+      $response = $this->decide()->json();
+
+
 
      return Inertia::render('Main', [
-      'props' => $props
+      'props' => $response
     ]);
     
   }
