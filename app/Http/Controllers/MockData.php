@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Http\Response;
+use App\Http\Controllers\Controller;
+use GuzzleHttp\Promise\PromiseInterface;
+
+
 
 class MockData extends Controller 
 {
@@ -277,13 +280,27 @@ class MockData extends Controller
     }
 JSON;
 
-  public function data(): response
+
+
+  public function data()
   {
 
-    $response = new response(200, $this->mock_data);
+    $encoded_mock_data = json_encode($this->mock_data);
+
+    Http::fake([
+        '/fake_data' => Http::response(
+                [$encoded_mock_data],
+            200
+        ),
+    ]);
+
+    $response = json_encode(Http::get("fake_data"));
+    dd($response);
+
+
     // & Trying to return a response with data that makes my tests happy.
 
     return $response;
-  }
-
 }
+
+} 
