@@ -315,22 +315,14 @@ use Illuminate\Http\Client\Response;
 
     public function fetch_from_api(): string | false | Response
     {
-      // $response = Http::get("https://newsapi.org/v2/top-headlines", [
-      //     "apiKey" => env('NEWS_API_KEY'),
-      //     "language" => "en"
-      // ]);
       $MockData = new MockData;
         
       $response = $MockData->data();
-      // & Stopped at trying to mock data from MockData.php.
-
-      // dd($response);
-
 
       $this->start_cooldown();
-      $this->response_copy = json_decode($response);
+      $this->response_copy = $response;
 
-      return json_decode($response);
+      return $response;
     }
 
 
