@@ -44,7 +44,7 @@ use Illuminate\Http\Client\Response;
     }
 
 
-    public function fetch_from_api(): string | false | Response
+    public function fetch_from_api(): Response 
     {
 
       // $api_response = Http::get("https://newsapi.org/v2/top-headlines",

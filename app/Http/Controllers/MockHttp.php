@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller;
-use GuzzleHttp\Promise\PromiseInterface;
+use Illuminate\Http\Client\Response;
 class MockHttp extends Controller 
 {
 
-  public function mock_api()
+  public function mock_api(): Response
   {
     $mock_data = new MockData;
 
