@@ -46,14 +46,24 @@ use Illuminate\Http\Client\Response;
 
     public function fetch_from_api(): string | false | Response
     {
+
+      // $api_response = Http::get("https://newsapi.org/v2/top-headlines",
+      // [
+      //   'apiKey' => env('NEWS_API_KEY'),
+      //   'language' => "en",
+      // ]);
+
+
       $MockHttp = new MockHttp;
         
       $response = $MockHttp->mock_api();
+
 
       $this->start_cooldown();
       $this->response_copy = $response;
 
       return $response;
+      // return $api_response;
     }
 
 
