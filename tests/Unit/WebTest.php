@@ -12,7 +12,6 @@ class WebTest extends TestCase
      * A basic unit test example.
      */
     public function test_the_application_returns_a_successful_response(): void
-    
     {
 
         $response = $this->get("/");
@@ -21,22 +20,16 @@ class WebTest extends TestCase
     }
 
 
-
-
-
     public function test_response_has_props(): void
-    
     {
         $response = $this->get('/');
 
-        
         $response->assertInertia(fn (Assert $page) => $page
         ->has('props')
         );
     }
 
     public function test_response_has_articles(): void
-    
     {
         $response = $this->get('/');
 
