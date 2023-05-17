@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\MockData as MockData;
+use App\Http\Controllers\MockHttp as MockHttp;
 use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
 use Illuminate\Http\Client\Response;
@@ -315,9 +315,9 @@ use Illuminate\Http\Client\Response;
 
     public function fetch_from_api(): string | false | Response
     {
-      $MockData = new MockData;
+      $MockData = new MockHttp;
         
-      $response = $MockData->data();
+      $response = $MockHttp->mock_api();
 
       $this->start_cooldown();
       $this->response_copy = $response;
