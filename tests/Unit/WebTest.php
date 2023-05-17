@@ -15,47 +15,35 @@ class WebTest extends TestCase
     
     {
 
-//         
-//         Http::fake([
-//             '/' => Http::response(
-//                 [
-//                     $fake_data
-//                 ],
-//                 200
-//             ),
-//         ]);
-
-        // $lol = "jfjf";
-        // dd($lol);
-
         $response = $this->get("/");
-        // dd($response);
-        $response->assertStatus(200);
 
-        // $this->assertJsonStringEqualsJsonString(
-        //     $response->body(),
-        //     json_encode([
-        //         '' => '',
-        //         '' => ''
-        //     ],)
-        // );
+        $response->assertStatus(200);
     }
 
 
 
 
 
-    // public function test_response_has_articles(): void
+    public function test_response_has_props(): void
     
-    // {
-    //     $response = $this->get('/');
+    {
+        $response = $this->get('/');
 
-    //     // dd($response);
         
-    //     $response->assertInertia(fn (Assert $page) => $page
-    //     ->has('props')
-    //     ->has('props.articles')
-    //     );
-    // }
+        $response->assertInertia(fn (Assert $page) => $page
+        ->has('props')
+        );
+    }
+
+    public function test_response_has_articles(): void
+    
+    {
+        $response = $this->get('/');
+
+        $response->assertInertia(fn (Assert $page) => $page
+        ->has('props')
+        ->has('props.articles')
+        );
+    }
     
 }
