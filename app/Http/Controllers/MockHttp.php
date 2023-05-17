@@ -13,11 +13,10 @@ class MockHttp extends Controller
     $mock_data = new MockData;
 
       
-    $encoded_mock_data = json_encode($mock_data->data);
 
     Http::fake([
         "fake_data" => Http::response(
-                [$encoded_mock_data],
+            $mock_data->data,
             200
         ),
     ]);
