@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\MockData;
 
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Client\Response;
-class MockHttp  
+class MockHttp 
 {
 
   public function mock_api(): Response

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\MockHttp as MockHttp;
+use App\MockData\MockHttp as MockHttp;
 use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
 use Illuminate\Http\Client\Response;
