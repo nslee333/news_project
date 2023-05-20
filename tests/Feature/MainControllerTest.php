@@ -6,9 +6,10 @@ use Tests\TestCase;
 use App\Http\Controllers\MainController;
 use Illuminate\Http\Client\Response;
 use Illuminate\Testing\Fluent\AssertableJson;
-use Illuminate\Testing\TestResponse; 
-use PHPUnit\Framework\Assert;
-// use PHPUnit\Framework\TestCase;
+use Illuminate\Testing\Assert;
+use Mockery\Undefined;
+// use PHPUnit\Framework\Assert;
+use PHPUnit\Framework;
 
 
 
@@ -18,47 +19,45 @@ class MainControllerTest extends TestCase
      * A basic unit test example.
      */
     
-    public function test_returns_response_from_api() // 
+    public function test_response_from_fetch_returns_status_ok() // 
     {
-
-        
         $controller = new MainController;
 
         $controller->start_cooldown();
 
         $decide = $controller->fetch_from_api();
 
-        $response = json_decode($decide->getBody());
+        $response = json_decode($decide);
 
-        // dd($response);
-        // dd(gettype($response));
+        $this->assertTrue($response->{"status"} === "ok");
 
-        // $response->assertContent("status");
+    }
+    public function test_response_has_articles() // 
+    {
+        $controller = new MainController;
 
-        // & I don't think I'm using it correctly.
-        // & assertContent is not a method because $response is not an http response.
-        // & Response is an object not a response, that's why the methods don't work.
-        // * Maybe the issue is that response is not a json object anymore
-        
-        // * Every assertion that I've used hasn't worked.
+        $controller->start_cooldown();
 
-        // * I think I saw some code in the App/ dir - maybe I should put mock_http + mock_data there.
+        $decide = $controller->fetch_from_api();
 
-        // * Need to binge Laravel tutorials
+        $response = json_decode($decide);
 
-        // * Stopped at: Setting up tests for controllers.
-        // TODO still need to finish settings page logic.
-        
-        // $decide
-        //     ->assertJson(fn (AssertableJson $json) => 
-        //         $json->hasAll([
-        //             'status',
-        //             'totalResults',
-        //             'articles',
-        //         ])->etc()
-        //     );
-        // $response->assert('status');
+        $articles = $response->{"articles"};
 
-        // return $decide;
+        $this->assertTrue(gettype($articles) !== "Undefined");
+    }
+    public function test_response_articles_is_an_array() // 
+    {
+        $controller = new MainController;
+
+        $controller->start_cooldown();
+
+        $decide = $controller->fetch_from_api();
+
+        $response = json_decode($decide);
+
+        $articles = $response->{"articles"};
+
+        $this->assertTrue(gettype($articles) === "array");
     }
 } 
