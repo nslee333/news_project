@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Client\Response;
-class MockHttp extends Controller 
+class MockHttp  
 {
 
   public function mock_api(): Response

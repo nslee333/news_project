@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MockData extends Controller
+class MockData 
 {
     public $data = array (
         'status' => 'ok',
