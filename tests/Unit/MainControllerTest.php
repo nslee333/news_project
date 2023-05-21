@@ -1,58 +1,83 @@
- // <?php
+<?php
 
-// namespace Tests\Unit;
+namespace Tests\Unit;
 
-// use Tests\TestCase;
-// use App\Http\Controllers\MainController;
-// use Illuminate\Http\Client\Response;
-// use Illuminate\Testing\Fluent\AssertableJson;
-// use Illuminate\Testing\TestResponse; 
-// use PHPUnit\Framework\Assert;
-// // use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
+use App\Http\Controllers\MainController;;
 
-
-
-// class MainControllerTest extends TestCase
-// {
-//     /**
-//      * A basic unit test example.
-//      */
+class MainControllerTest extends TestCase
+{
+    /**
+     * A basic unit test example.
+     */
     
-//     public function test_returns_response_from_api() // 
-//     {
+    public function test_response_from_fetch_returns_status_ok() // 
+    {
+        $controller = new MainController;
 
-        
-//         $controller = new MainController;
+        $controller->start_cooldown();
 
-//         $controller->start_cooldown();
+        $decide = $controller->fetch_from_api();
 
-//         $decide = $controller->fetch_from_api();
+        $response = json_decode($decide);
 
-//         $response = json_decode($decide->getBody());
+        $this->assertTrue($response->{"status"} === "ok");
 
-//         // dd($response);
-//         // dd(gettype($response));
+    }
+    public function test_fetch_response_has_articles() // 
+    {
+        $controller = new MainController;
 
-//         // $response->assertContent("status");
+        $controller->start_cooldown();
 
-//         // & I don't think I'm using it correctly.
-//         // & assertContent is not a method because $response is not an http response.
-//         // & Response is an object not a response, that's why the methods don't work.
-//         // * Maybe the issue is that response is not a json object anymore
-        
-//         // * Every assertion that I've used hasn't worked.
-        
+        $decide = $controller->fetch_from_api();
 
-//         // $decide
-//         //     ->assertJson(fn (AssertableJson $json) => 
-//         //         $json->hasAll([
-//         //             'status',
-//         //             'totalResults',
-//         //             'articles',
-//         //         ])->etc()
-//         //     );
-//         // $response->assert('status');
+        $response = json_decode($decide);
 
-//         // return $decide;
-//     }
-// } 
+        $articles = $response->{"articles"};
+
+        $this->assertTrue(gettype($articles) !== "Undefined");
+    }
+    public function test_fetch_response_articles_is_an_array() // 
+    {
+        $controller = new MainController;
+
+        $controller->start_cooldown();
+
+        $decide = $controller->fetch_from_api();
+
+        $response = json_decode($decide);
+
+        $articles = $response->{"articles"};
+
+        $this->assertTrue(gettype($articles) === "array");
+    }
+    public function test_fetch_response_article_has_an_author() // 
+    {
+        $controller = new MainController;
+
+        $controller->start_cooldown();
+
+        $decide = $controller->fetch_from_api();
+
+        $response = json_decode($decide);
+
+        $articles = $response->{"articles"};
+
+        $this->assertTrue(gettype($articles[0]->{"author"}) !== "undefined");
+    }
+    public function test_fetch_response_article_has_a_title() // 
+    {
+        $controller = new MainController;
+
+        $controller->start_cooldown();
+
+        $decide = $controller->fetch_from_api();
+
+        $response = json_decode($decide);
+
+        $articles = $response->{"articles"};
+
+        $this->assertTrue(gettype($articles[0]->{"title"}) !== "undefined");
+    }
+} 
