@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use App\Http\Controllers\MainController;;
+use App\Http\Controllers\MainController;
 
 class MainControllerTest extends TestCase
 {
