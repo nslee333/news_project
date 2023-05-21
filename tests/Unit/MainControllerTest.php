@@ -122,4 +122,18 @@ class MainControllerTest extends TestCase
 
         $this->assertTrue(gettype($articles[0]->{"publishedAt"}) !== "undefined");
     }
+    public function test_fetch_response_article_has_a_source() // 
+    {
+        $controller = new MainController;
+
+        $controller->start_cooldown();
+
+        $decide = $controller->fetch_from_api();
+
+        $response = json_decode($decide);
+
+        $articles = $response->{"articles"};
+
+        $this->assertTrue(gettype($articles[0]->{"source"}->{"name"}) !== "undefined");
+    }
 } 
