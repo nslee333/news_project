@@ -15,8 +15,6 @@ class MainControllerFetchTest extends TestCase
     {
         $controller = new MainController;
 
-        $controller->start_cooldown();
-
         $decide = $controller->fetch_from_api();
 
         $response = json_decode($decide);
@@ -27,8 +25,6 @@ class MainControllerFetchTest extends TestCase
     public function test_fetch_response_has_articles(): void
     {
         $controller = new MainController;
-
-        $controller->start_cooldown();
 
         $decide = $controller->fetch_from_api();
 
@@ -42,8 +38,6 @@ class MainControllerFetchTest extends TestCase
     {
         $controller = new MainController;
 
-        $controller->start_cooldown();
-
         $decide = $controller->fetch_from_api();
 
         $response = json_decode($decide);
@@ -55,8 +49,6 @@ class MainControllerFetchTest extends TestCase
     public function test_fetch_response_article_has_an_author(): void
     {
         $controller = new MainController;
-
-        $controller->start_cooldown();
 
         $decide = $controller->fetch_from_api();
 
@@ -70,8 +62,6 @@ class MainControllerFetchTest extends TestCase
     {
         $controller = new MainController;
 
-        $controller->start_cooldown();
-
         $decide = $controller->fetch_from_api();
 
         $response = json_decode($decide);
@@ -83,8 +73,6 @@ class MainControllerFetchTest extends TestCase
     public function test_fetch_response_article_has_a_url(): void
     {
         $controller = new MainController;
-
-        $controller->start_cooldown();
 
         $decide = $controller->fetch_from_api();
 
@@ -98,8 +86,6 @@ class MainControllerFetchTest extends TestCase
     {
         $controller = new MainController;
 
-        $controller->start_cooldown();
-
         $decide = $controller->fetch_from_api();
 
         $response = json_decode($decide);
@@ -111,8 +97,6 @@ class MainControllerFetchTest extends TestCase
     public function test_fetch_response_article_has_a_published_at_field(): void
     {
         $controller = new MainController;
-
-        $controller->start_cooldown();
 
         $decide = $controller->fetch_from_api();
 
@@ -126,8 +110,6 @@ class MainControllerFetchTest extends TestCase
     {
         $controller = new MainController;
 
-        $controller->start_cooldown();
-
         $decide = $controller->fetch_from_api();
 
         $response = json_decode($decide);
@@ -135,5 +117,10 @@ class MainControllerFetchTest extends TestCase
         $articles = $response->{"articles"};
 
         $this->assertTrue(gettype($articles[0]->{"source"}->{"name"}) !== "undefined");
+    }
+
+    public function test_fetch_starts_cooldown(): void
+    {
+
     }
 }
