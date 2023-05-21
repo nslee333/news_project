@@ -19,7 +19,22 @@ class WebTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_response_returns_inertia_response(): void
+    {
+        $response = $this->get('/');
 
+        $response->assertInertia(fn (Assert $page) => $page);
+    }
+
+
+    public function test_response_has_main_component(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertInertia(fn (Assert $page) => $page
+        ->component('Main')
+        );
+    }
     public function test_response_has_props(): void
     {
         $response = $this->get('/');
