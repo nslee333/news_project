@@ -52,11 +52,8 @@ use Illuminate\Http\Client\Response;
       //   'language' => "en",
       // ]);
 
-
       $MockHttp = new MockHttp;
-        
       $response = $MockHttp->mock_api();
-
 
       $this->start_cooldown();
       $this->response_copy = $response;
