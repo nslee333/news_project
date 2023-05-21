@@ -80,4 +80,46 @@ class MainControllerTest extends TestCase
 
         $this->assertTrue(gettype($articles[0]->{"title"}) !== "undefined");
     }
+    public function test_fetch_response_article_has_a_url() // 
+    {
+        $controller = new MainController;
+
+        $controller->start_cooldown();
+
+        $decide = $controller->fetch_from_api();
+
+        $response = json_decode($decide);
+
+        $articles = $response->{"articles"};
+
+        $this->assertTrue(gettype($articles[0]->{"url"}) !== "undefined");
+    }
+    public function test_fetch_response_article_has_a_urlToImage() // 
+    {
+        $controller = new MainController;
+
+        $controller->start_cooldown();
+
+        $decide = $controller->fetch_from_api();
+
+        $response = json_decode($decide);
+
+        $articles = $response->{"articles"};
+
+        $this->assertTrue(gettype($articles[0]->{"urlToImage"}) !== "undefined");
+    }
+    public function test_fetch_response_article_has_a_published_at_field() // 
+    {
+        $controller = new MainController;
+
+        $controller->start_cooldown();
+
+        $decide = $controller->fetch_from_api();
+
+        $response = json_decode($decide);
+
+        $articles = $response->{"articles"};
+
+        $this->assertTrue(gettype($articles[0]->{"publishedAt"}) !== "undefined");
+    }
 } 
