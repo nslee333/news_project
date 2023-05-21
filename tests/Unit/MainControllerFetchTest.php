@@ -121,6 +121,14 @@ class MainControllerFetchTest extends TestCase
 
     public function test_fetch_starts_cooldown(): void
     {
+        $controller = new MainController;
 
+        $controller->fetch_from_api();
+
+        $current = time();
+        
+        $cooldown_time = $controller->cooldown;
+        
+        $this->assertTrue($cooldown_time > $current);
     }
 }
