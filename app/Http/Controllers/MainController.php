@@ -24,7 +24,7 @@ use Illuminate\Http\Client\Response;
     {
       $cooldown = $this->cooldown;
 
-      if ($cooldown == 0) {
+      if ($cooldown === 0) {
         return false;
       } else {
         return true;
