@@ -131,4 +131,15 @@ class MainControllerFetchTest extends TestCase
         
         $this->assertTrue($cooldown_time > $current);
     }
+
+    public function test_fetch_sets_response_copy(): void
+    {
+        $controller = new MainController;
+
+        $controller->fetch_from_api();
+
+        $response_copy = $controller->response_copy;
+
+        $this->assertTrue(gettype($response_copy['status']) !== "undefined");
+    }
 }
