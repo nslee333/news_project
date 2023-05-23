@@ -37,10 +37,11 @@ use Illuminate\Http\Client\Response;
 
       if ($cooldown_bool) {
         $data = $this->response_copy;
-        return array("cooldown" => $cooldown_bool, "data" => $data);
+        return array("cooldown_bool" => $cooldown_bool, "data" => $data);
+
       } else {
         $data =  $this->fetch_from_api()->json();
-        return array("cooldown" => $cooldown_bool, "data" => $data);
+        return array("cooldown_bool" => $cooldown_bool, "data" => $data);
       }
     }
 
