@@ -30,6 +30,25 @@ class MainControllerTest extends TestCase
         $this->assertFalse($decide['cooldown_bool']);
     }
 
+    public function test_check_cooldown_returns_false_if_cooldown_is_inactive(): void 
+    {
+        $controller = new MainController; 
+
+        $boolean = $controller->check_cooldown();
+
+        $this->assertFalse($boolean);
     }
+
+    public function test_test_cooldown_returns_true_if_cooldown_is_active(): void
+    {
+        $controller = new MainController;
+
+        $controller->start_cooldown();
+
+        $boolean = $controller->check_cooldown();
+        
+        $this->assertTrue($boolean);
+    }
+
 
 } 
