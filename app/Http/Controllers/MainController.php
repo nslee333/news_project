@@ -36,9 +36,11 @@ use Illuminate\Http\Client\Response;
       $cooldown_bool = $this->check_cooldown();
 
       if ($cooldown_bool) {
-        return $this->response_copy;
+        $data = $this->response_copy;
+        return array("cooldown" => $cooldown_bool, "data" => $data);
       } else {
-        return $this->fetch_from_api()->json();
+        $data =  $this->fetch_from_api()->json();
+        return array("cooldown" => $cooldown_bool, "data" => $data);
       }
     }
 
@@ -66,7 +68,7 @@ use Illuminate\Http\Client\Response;
 
     public function index() 
     {
-      $response = $this->decide();
+      $response = $this->decide()['data'];
 
      return Inertia::render('Main', [
       'props' => $response
