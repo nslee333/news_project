@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use Inertia\Testing\AssertableInertia as Assert;
-use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 class WebTest extends TestCase
