@@ -4,8 +4,6 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Http\Controllers\MainController;
-use Inertia\Testing\AssertableInertia as Assert;
-
 class MainControllerTest extends TestCase
 {
     /**
