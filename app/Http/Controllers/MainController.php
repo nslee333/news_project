@@ -26,7 +26,7 @@ use Illuminate\Http\Client\Response;
 
       if ($cooldown === 0) {
         return false;
-        
+
       } else {
         return true;
       }
@@ -55,10 +55,10 @@ use Illuminate\Http\Client\Response;
       //   'apiKey' => env('NEWS_API_KEY'),
       //   'language' => "en",
       // ]);
-
+      
       $MockHttp = new MockHttp;
       $response = $MockHttp->mock_api();
-
+      
       $this->start_cooldown();
       $this->response_copy = $response;
 
