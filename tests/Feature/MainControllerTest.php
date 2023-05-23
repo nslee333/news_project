@@ -13,15 +13,25 @@ class MainControllerTest extends TestCase
   {
     $controller = new MainController;
 
-    $first_request = $this->get('/');
+    $result = $this->get('/');
+
+    dd($controller->cooldown);
 
     $first_check_cooldown = $controller->check_cooldown();
-
+    
     $this->assertFalse($first_check_cooldown);
-
-    $first_request = $this->get('/');
+    
+    $this->get('/');
+    
+    $second_check_cooldown = $controller->check_cooldown();
+    
+    dd([$first_check_cooldown, $second_check_cooldown]);
+    
+    // $this->assertTrue($second_check_cooldown);
 
     // & Stopped at adding second assertion.
+    // * I don't think this test will work since I need the framework to be running to test this feature - might 
+    // * Need to look into phpunit fixtures.
   }
  
 } 
