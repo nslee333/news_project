@@ -50,5 +50,30 @@ class MainControllerTest extends TestCase
         $this->assertTrue($boolean);
     }
 
+    public function test_start_cooldown_starts_cooldown(): void
+    {
+        $controller = new MainController;
+
+        $current_time = time();
+
+        $controller->start_cooldown();
+
+        $cooldown = $controller->cooldown;
+
+        $this->assertTrue($cooldown > $current_time);
+    }
+
+    public function test_start_cooldown_adds_30_minutes_to_cooldown(): void
+    {
+        $controller = new MainController;
+
+        $expected_time = time() + 30 * 60;
+
+        $controller->start_cooldown();
+
+        $cooldown = $controller->cooldown;
+
+        $this->assertTrue($cooldown === $expected_time);
+    }
 
 } 
