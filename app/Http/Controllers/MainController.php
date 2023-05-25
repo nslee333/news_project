@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\MockData\MockHttp as MockHttp;
 use Inertia\Inertia;
 use Illuminate\Http\Client\Response;
+use Illuminate\Support\Facades\Http;
 
 
   class MainController extends Controller
@@ -50,11 +51,11 @@ use Illuminate\Http\Client\Response;
     public function fetch_from_api(): Response 
     {
 
-      // $api_response = Http::get("https://newsapi.org/v2/top-headlines",
-      // [
-      //   'apiKey' => env('NEWS_API_KEY'),
-      //   'language' => "en",
-      // ]);
+      $api_response = Http::get("https://newsapi.org/v2/top-headlines",
+      [
+        'apiKey' => env('NEWS_API_KEY'),
+        'language' => "en",
+      ]);
       
       $MockHttp = new MockHttp;
       $response = $MockHttp->mock_api();
@@ -62,8 +63,8 @@ use Illuminate\Http\Client\Response;
       $this->start_cooldown();
       $this->response_copy = $response;
 
-      return $response;
-      // return $api_response;
+      // return $response;
+      return $api_response;
     }
 
 
