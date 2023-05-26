@@ -65,6 +65,14 @@ export default function Settings() {
   }
 
 
+  function onSubmit(e) {
+    e.preventDefault();
+    console.log("onSubmit call")
+  } 
+
+
+
+
   return (
     <>
       <div className="sett">
@@ -82,8 +90,10 @@ export default function Settings() {
                 }
               </div>
               <div className="filter-input">
-                <input className="" type="text"/>
-                <button className="filter-save">Save</button>
+                <form className="filter-input" onSubmit={e => onSubmit(e)}>
+                  <input className="" type="text"/>
+                  <button className="filter-save">Save</button>
+                </form>
               </div>
             </div>
           </div>
@@ -96,8 +106,10 @@ export default function Settings() {
                 }
               </div>
               <div className="block-input">
-                <input type="text" />
-                <button className="block-save">Save</button>
+                <form className="block-input" onSubmit={e => onSubmit(e)}>
+                  <input type="text" />
+                  <button className="block-save">Save</button>
+                </form>
               </div>
           </div>
         </div>
