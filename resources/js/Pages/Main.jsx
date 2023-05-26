@@ -36,7 +36,6 @@ function Display({ state, data }) {
 
 
 function Main(props) {  
-  console.log(props);
   
   const [state, dispatch] = useReducer(headerReducer, initialHeaderState);
 
