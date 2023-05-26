@@ -2,9 +2,6 @@ import "../../css/settings.css";
 import { settingsReducer } from "../state/reducers";
 import { useReducer } from "react";
 
-// & Need to implement this
-
-
 
 export default function Settings() {
   const initialState = {

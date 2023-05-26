@@ -20,7 +20,7 @@ export default function Header(props) {
           <div className="header-title">News Feed</div>
         </a>
         <a onClick={() => props.dispatch(action_sett)}>
-          <div className="header-settings">Settings</div>
+          {/* <div className="header-settings">Settings</div> */}
         </a>
       </div>
     </>
