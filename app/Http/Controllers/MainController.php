@@ -56,12 +56,14 @@ use Illuminate\Support\Facades\Http;
         'apiKey' => env('NEWS_API_KEY'),
         'language' => "en",
       ]);
+
+      // & This code below displays saved mock data for developing.
       
-      $MockHttp = new MockHttp;
-      $response = $MockHttp->mock_api();
+      // $MockHttp = new MockHttp;
+      // $response = $MockHttp->mock_api();
       
-      $this->start_cooldown();
-      $this->response_copy = $response;
+      // $this->start_cooldown();
+      // $this->response_copy = $response;
 
       // return $response;
       return $api_response;
